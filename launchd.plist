@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict><!-- see https://www.launchd.info -->
+		<key>Label</key>
+		<string>mlhartme.backup</string>
+		<key>Program</key>
+		<string>/Users/mhm/bin/backup.sh</string>
+                
+                <key>StartCalendarInterval</key>
+                <array>
+                    <dict>
+                        <key>Hour</key>
+                        <integer>10</integer>
+                        <key>Minute</key>
+                        <integer>30</integer>
+                    </dict>
+                </array>
+	</dict>
+</plist>
+
