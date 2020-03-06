@@ -5,17 +5,15 @@
 		<key>Label</key>
 		<string>mlhartme.backup</string>
 		<key>Program</key>
-		<string>/Users/mhm/bin/backup.sh</string>
+		<string>/Users/mhm/Projects/github.com/mlhartme/backup/backup.sh</string>
                 
                 <key>StartCalendarInterval</key>
-                <array>
-                    <dict>
-                        <key>Hour</key>
-                        <integer>10</integer>
-                        <key>Minute</key>
-                        <integer>30</integer>
-                    </dict>
-                </array>
+                <dict>
+                    <key>Hour</key>
+                    <integer>16</integer>
+                    <key>Minute</key>
+                    <integer>50</integer>
+                </dict>
 	</dict>
 </plist>
 
