@@ -48,7 +48,7 @@ elif [ ${global_exit} -eq 1 ]; then
 else
     message="Finished with errors"
 fi
-script="display alert "Backup Done" message \"${message}\""
+script="display alert \"Backup Done\" message \"${message}\""
 echo ${script}
 osascript -e "${script}"
 exit ${global_exit}
