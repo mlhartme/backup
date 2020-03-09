@@ -3,7 +3,7 @@
 base=${HOME}/Projects/github.com/mlhartme/backup
 . ${base}/profile
 
-host=walter
+host=$(hostname)
 date=$(date +"%y%m%d-%H%M%S")
 
 trap 'echo ${date} Backup interrupted >&2; exit 2' INT TERM
