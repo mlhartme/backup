@@ -17,6 +17,9 @@ borg create                         \
     --compression lz4               \
     --exclude /Users/mhm/Downloads  \
     --exclude /Users/mhm/Library/Caches  \
+    --exclude /Users/mhm/Library/Group\ Containers/UBF8T346G9.Office \
+    --exclude /Users/mhm/Library/Application\ Support/SaalDesignSoftware \
+    --exclude /Users/mhm/Library/Safari/ \
     --exclude /Users/mhm/Pictures   \
     --exclude /Users/mhm/.m2/repository   \
     --exclude /Users/mhm/.cache     \
