@@ -7,7 +7,7 @@
 
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/al/bin/crontab-test.sh</string>
+    <string>/Users/mhm/Projects/github.com/mlhartme/backup/check.sh</string>
   </array>
 
   <key>RunAtLoad</key>
