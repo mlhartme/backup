@@ -17,9 +17,12 @@ borg create                         \
     --compression lz4               \
     --exclude /Users/mhm/Downloads  \
     --exclude /Users/mhm/Library/Caches  \
+    --exclude /Users/mhm/Library/Logs \
     --exclude /Users/mhm/Library/Group\ Containers/UBF8T346G9.Office \
     --exclude /Users/mhm/Library/Application\ Support/SaalDesignSoftware \
-    --exclude /Users/mhm/Library/Safari/ \
+    --exclude /Users/mhm/Library/Containers/com.docker.docker \
+    --exclude /Users/mhm/Library/Safari \
+    --exclude /Users/mhm/Library/iTunes \
     --exclude /Users/mhm/Pictures   \
     --exclude /Users/mhm/.m2/repository   \
     --exclude /Users/mhm/.cache     \
@@ -46,6 +49,7 @@ global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
 
 if [ ${global_exit} -eq 0 ]; then
     message="Finished successfully"
+    touch ${base}/ok
 elif [ ${global_exit} -eq 1 ]; then
     message="Finished with warnings"
 else
