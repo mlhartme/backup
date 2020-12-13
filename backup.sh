@@ -1,7 +1,7 @@
 #!/bin/sh
 
 base=${HOME}/Projects/github.com/mlhartme/backup
-. ${base}/profile
+. ${HOME}/.borg-profile
 
 host=$(hostname)
 date=$(date +"%y%m%d-%H%M%S")
@@ -21,6 +21,7 @@ borg create                         \
     --exclude ${root}/Library/Logs \
     --exclude ${root}/Library/Group\ Containers/UBF8T346G9.Office \
     --exclude ${root}/Library/Application\ Support/SaalDesignSoftware \
+    --exclude ${root}/Library/Application\ Support/minecraft \
     --exclude ${root}/Library/Containers/com.docker.docker \
     --exclude ${root}/Library/Safari \
     --exclude ${root}/Library/iTunes \
