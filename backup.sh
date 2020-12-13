@@ -50,14 +50,14 @@ prune_exit=$?
 global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
 
 if [ ${global_exit} -eq 0 ]; then
-    message="Finished successfully"
+    message="Backup ok"
     touch ${base}/ok
 elif [ ${global_exit} -eq 1 ]; then
-    message="Finished with warnings"
+    message="Backup Warnings"
 else
-    message="Finished with errors"
+    message="Backup Failed"
 fi
-script="display alert \"Backup Done\" message \"${message}\""
+script="display alert \"${message}\" message \"${message}\""
 echo ${script}
 osascript -e "${script}"
 exit ${global_exit}
