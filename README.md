@@ -1,7 +1,10 @@
 # Borg Configuration
 
+for https://www.borgbackup.org
+
 ## Setup
 
+* install borg to /usr/local/bin
 * system preferences -> security -> full disk access:
   * /bin/sh!? to grant borg access to ~/Library stuff 
 * add your passphrase with
