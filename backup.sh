@@ -1,11 +1,11 @@
 #!/bin/sh
 
-base=${HOME}/Projects/github.com/mlhartme/backup
-. ${HOME}/.borg-profile
+base=/Users/mhm/Projects/github.com/mlhartme/backup
+. $HOME/.borg-profile
 
 host=$(hostname)
 date=$(date +"%y%m%d-%H%M%S")
-root=${HOME}
+root=/Users/mhm
 
 trap 'echo ${date} Backup interrupted >&2; exit 2' INT TERM
 
@@ -32,7 +32,7 @@ borg create                         \
     --exclude ${root}/.Trash     \
     --exclude ${base}/logs          \
     ::"${host}-${date}"             \
-    ${root} >${base}/logs/backup-${date}.log 2>&1
+    ${root} >/var/log/borg/backup-${date}.log 2>&1
 
 backup_exit=$?
 
