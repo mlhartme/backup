@@ -6,14 +6,19 @@
 		<string>mlhartme.backup</string>
 		<key>Program</key>
 		<string>/Users/mhm/Projects/github.com/mlhartme/backup/backup.sh</string>
-                
-                <key>StartCalendarInterval</key>
-                <dict>
-                    <key>Hour</key>
-                    <integer>8</integer>
-                    <key>Minute</key>
-                    <integer>35</integer>
-                </dict>
+
+        <key>StandardOutPath</key>
+        <string>/var/log/borg/job.log</string>
+        <key>StandardErrorPath</key>
+        <string>/var/log/borg/job.log</string>
+
+        <key>StartCalendarInterval</key>
+        <dict>
+            <key>Hour</key>
+            <integer>8</integer>
+            <key>Minute</key>
+            <integer>35</integer>
+        </dict>
 	</dict>
 </plist>
 

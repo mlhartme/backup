@@ -1,7 +1,7 @@
 #!/bin/sh
 
 base=/Users/mhm/Projects/github.com/mlhartme/backup
-. $HOME/.borg-profile
+. ~/.borg-profile
 
 host=$(hostname)
 date=$(date +"%y%m%d-%H%M%S")
@@ -9,7 +9,7 @@ root=/Users
 
 trap 'echo ${date} Backup interrupted >&2; exit 2' INT TERM
 
-borg create                         \
+/usr/local/bin/borg create                         \
     --verbose                       \
     --filter AME                    \
     --list                          \
@@ -57,7 +57,9 @@ elif [ ${global_exit} -eq 1 ]; then
 else
     message="Backup Failed"
 fi
-script="display alert \"${message}\" message \"${message}\""
-echo ${script}
-osascript -e "${script}"
-exit ${global_exit}
+
+# TODO: doesn't work from Launchd Daemon ...
+#   script="display alert \"${message}\" message \"${message}\""
+#   echo ${script}
+#   osascript -e "${script}"
+#   exit ${global_exit}
