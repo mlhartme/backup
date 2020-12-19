@@ -5,7 +5,8 @@ for https://www.borgbackup.org
 ## Setup
 
 * clone this to /usr/local/backup
-* install borg to /usr/local/bin
+* install borg to /usr/local/bin 
+  (dms file: chmod a+x, rename to borg)
 * as root
   * create an ssh key without passphrase
     ssh-keygen -t rsa
@@ -14,6 +15,9 @@ for https://www.borgbackup.org
     export BORG_REPO=<your repo>
     ###export BORG_PASSCOMMAND="security find-generic-password -a $USER -s borg-passphrase -w"
     export BORG_PASSPHRASE=<yours>
+* to create a new repo: 
+  * source profile
+  * borg init --encryption=repokey
 * cp launchd.plist into your /Library/LaunchdDaemons (not agents, that's per-user)
 * check with launchctl list
 

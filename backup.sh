@@ -5,7 +5,7 @@ base=/Users/mhm/Projects/github.com/mlhartme/backup
 
 host=$(hostname)
 date=$(date +"%y%m%d-%H%M%S")
-root=/Users/mhm
+root=/Users
 
 trap 'echo ${date} Backup interrupted >&2; exit 2' INT TERM
 
@@ -16,21 +16,21 @@ borg create                         \
     --stats                         \
     --show-rc                       \
     --compression lz4               \
-    --exclude ${root}/Downloads  \
-    --exclude ${root}/Library/Caches  \
-    --exclude ${root}/Library/Logs \
-    --exclude ${root}/Library/Group\ Containers/UBF8T346G9.Office \
-    --exclude ${root}/Library/Application\ Support/SaalDesignSoftware \
-    --exclude ${root}/Library/Application\ Support/minecraft \
-    --exclude ${root}/Library/Containers/com.docker.docker \
-    --exclude ${root}/Library/Safari \
-    --exclude ${root}/Library/iTunes \
-    --exclude ${root}/Pictures   \
-    --exclude ${root}/.m2/repository   \
-    --exclude ${root}/.cache     \
-    --exclude ${root}/.fault     \
-    --exclude ${root}/.Trash     \
-    --exclude ${base}/logs          \
+    --exclude sh:${root}/Shared/    \
+    --exclude sh:${root}/*/Downloads  \
+    --exclude sh:${root}/*/Library/Caches  \
+    --exclude sh:${root}/*/Library/Logs \
+    --exclude sh:${root}/*/Library/Group\ Containers/UBF8T346G9.Office \
+    --exclude sh:${root}/*/Library/Application\ Support/SaalDesignSoftware \
+    --exclude sh:${root}/*/Library/Application\ Support/minecraft \
+    --exclude sh:${root}/*/Library/Containers/com.docker.docker \
+    --exclude sh:${root}/*/Library/Safari \
+    --exclude sh:${root}/*/Library/iTunes \
+    --exclude sh:${root}/*/Pictures   \
+    --exclude sh:${root}/*/.m2/repository   \
+    --exclude sh:${root}/*/.cache     \
+    --exclude sh:${root}/*/.fault     \
+    --exclude sh:${root}/*/.Trash     \
     ::"${host}-${date}"             \
     ${root} >/var/log/borg/backup-${date}.log 2>&1
 
