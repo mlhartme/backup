@@ -3,7 +3,7 @@
 base=/Users/mhm/Projects/github.com/mlhartme/backup
 . ~/.borg-profile
 
-host=$(hostname)
+host=${BORG_CLIENT}
 date=$(date +"%y%m%d-%H%M%S")
 root=/Users
 
@@ -32,7 +32,7 @@ trap 'echo ${date} Backup interrupted >&2; exit 2' INT TERM
     --exclude sh:${root}/*/.fault     \
     --exclude sh:${root}/*/.Trash     \
     ::"${host}-${date}"             \
-    ${root} >/var/log/borg/backup-${date}.log 2>&1
+    ${root} >/var/log/borg/${host}-${date}.log 2>&1
 
 backup_exit=$?
 
@@ -51,12 +51,14 @@ global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
 
 if [ ${global_exit} -eq 0 ]; then
     message="Backup ok"
-    touch ${base}/ok
+    touch /var/log/borg/ok
 elif [ ${global_exit} -eq 1 ]; then
     message="Backup Warnings"
 else
     message="Backup Failed"
 fi
+
+echo ${message}
 
 # TODO: doesn't work from Launchd Daemon ...
 #   script="display alert \"${message}\" message \"${message}\""

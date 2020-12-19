@@ -2,7 +2,15 @@
 
 for https://www.borgbackup.org
 
-## Setup
+## Setup Backup Server
+
+To Setup my backup server:
+
+* create borg user
+* install borg
+
+
+## Setup a backup for a new machine
 
 As mhm
 * clone this to /usr/local/backup
@@ -15,14 +23,17 @@ As root
   and add the public key to my borg account
 * mkdir /var/log/borg
 * create ~/.borg-profile
+    export BORG_CLIENT=<yourhostname>
     export BORG_REPO=<your repo>
     export BORG_PASSPHRASE=<yours>
 * create a new repo:
   * source profile
   * borg init --encryption=repokey
-* cp <gitclone>/launchd.plist into your /Library/LaunchdDaemons (not agents, that's per-user)
-* launchctl load backup.plist
+* cp <gitclone>/mlhartme.backup.plist /Library/LaunchdDaemons (not agents, that's per-user)
+* launchctl load /Library/LaunchdDaemons/mlhartme.backup.plist
 * check with launchctl list, tail /var/log/syslog.log
+* launchctl start mlhartme.backup
+* check tail /var/log/syslog.log and /var/log/borg
 
 * TODO: still needed?
   * system preferences -> security -> full disk access:
