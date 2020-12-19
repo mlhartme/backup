@@ -15,7 +15,7 @@ borg create                         \
     --list                          \
     --stats                         \
     --show-rc                       \
-    --compression lz4               \
+    --compression zstd              \
     --exclude sh:${root}/Shared/    \
     --exclude sh:${root}/*/Downloads  \
     --exclude sh:${root}/*/Library/Caches  \
