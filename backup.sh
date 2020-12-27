@@ -36,7 +36,7 @@ trap 'echo ${date} Backup interrupted >&2; exit 2' INT TERM
 
 backup_exit=$?
 
-borg prune                          \
+/usr/local/bin/borg prune           \
     --list                          \
     --prefix "${host}-"             \
     --show-rc                       \
