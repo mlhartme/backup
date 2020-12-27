@@ -1,7 +1,5 @@
 # Borg Configuration
 
-for https://www.borgbackup.org
-
 ## Setup Backup Server
 
 To Setup my backup server:
@@ -14,7 +12,7 @@ To Setup my backup server:
 
 As mhm
 * clone this to /usr/local/backup
-* install borg to /usr/local/bin 
+* install borg (https://www.borgbackup.org) to /usr/local/bin 
   (dms file: chmod a+x, rename to borg)
 
 As root
@@ -35,9 +33,6 @@ As root
 * launchctl start mlhartme.backup
 * check tail /var/log/syslog.log and /var/log/borg
 
-* TODO: still needed?
+* for macOS Catalina:
   * system preferences -> security -> full disk access:
-    * /bin/sh!? to grant borg access to ~/Library stuff 
-  * TODO:
-     add your passphrase with
-        security add-generic-password -D secret -U -a $USER -s borg-passphrase -w $(echo "passphrase: "; read -s passphrase; echo $passphrase)
+    * /bin/sh
